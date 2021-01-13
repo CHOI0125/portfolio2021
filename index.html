@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SUNG EUN</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="js/circletype.min.js"></script>
+    </head>
+    <body>
+        <div class="circle-scroll">
+            <div class="circular-text">
+                <span id="rotated">
+                    SUNGEUN • CHOI • 2021 • PORTFOLIO • WEB • UI • UX • FRONTEND
+                    • DEV •</span>
+            </div>
+            <div class="arrow">
+                <img class="arrow-down" src="img/arrow-down-line.svg">
+            </div>
+        </div>
+        
+    </body>
+    <script>
+        const circleType = new CircleType(
+            document.getElementById("rotated")
+        ).radius(80);
+
+        $(window).scroll(function() {
+            var offset = $(window).scrollTop();
+            offset = offset * 0.4;
+
+            $(".circular-text").css({
+                "-moz-transform": "rotate(" + offset + "deg)",
+                "-webkit-transform": "rotate(" + offset + "deg)",
+                "-o-transform": "rotate(" + offset + "deg)",
+                "-ms-transform": "rotate(" + offset + "deg)",
+                transform: "rotate(" + offset + "deg)"
+            });
+        });
+    </script>
+</html>
