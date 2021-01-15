@@ -4,7 +4,7 @@ $(document).ready(function(){
 })
 const circleType = new CircleType(
         document.getElementById("rotated")
-    ).radius(80);
+    ).radius(50);
 
 $(window).scroll(function() {
 
