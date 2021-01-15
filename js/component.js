@@ -6,7 +6,16 @@ function myFunction() {
   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   var scrolled = (winScroll / height) * 100;
   document.getElementById("myBar").style.width = scrolled + "%";
+  
+  if (scrolled === 100){
+    console.log(scrolled);
+    document.getElementById("down-arrow").style.transform = 'rotate( 180deg )';
+  } else {
+    document.getElementById("down-arrow").style.transform = 'rotate( 0deg )';
+  }
 }
+
+//프로세스바 끝
 
 $(document).ready(function(){
 
@@ -41,13 +50,6 @@ $(document).ready(function(){
   // $('#template-to-top').setAttribute("data-aos","fade-up");
   // $('#template-to-top').setAttribute("data-aos-duration","600");
 
-  $(".highlight-link").each(function(){
-        if ( $(this).isOnScreenHighlight() ) {
-              $(this).addClass('shown');
-            } else {
-              $(this).removeClass('shown');
-        }
-  });
 
   var jumboHeight = $('.jumbotron').outerHeight();
 
@@ -57,9 +59,6 @@ $(document).ready(function(){
     // console.log("Scrolled: "+scrolled);
     // $('.bg').css('height', (jumboHeight-scrolled) + 'px');
 
-    $(".scroll-disappear").css("opacity", 1 - $(window).scrollTop() / 500);
-    $(".arrow").css("opacity", 1 - $(window).scrollTop() / 20);
-
     $(".highlight").each(function(){
     	    if ( $(this).isOnScreenHighlight() ) {
             $(this).addClass('shown');
@@ -68,95 +67,10 @@ $(document).ready(function(){
     	    }
     });
 
-    $(".highlight-link").each(function(){
-          if ( $(this).isOnScreenHighlight() ) {
-                  $(this).css("animation-delay","0s");
-                  $(this).addClass('shown');
-              } else {
-                $(this).removeClass('shown');
-          }
-    });
-  });
-
-  // $("img[class*=\"img-responsive\"]").each(function(index,element) {
-  //   console.log($(element).attr('class'));
-  //   if ($(element).attr('class')!= 'img-responsive full-screen-img') {
-  //     $(element).attr("data-action","zoom");
-  //   }
-  // });
-
-  $('#template-to-top').hide();
-  $(".bs-docs-sidebar").hide();
-
-  function checkVisible(elm) {
-    var rect = elm.getBoundingClientRect();
-    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
-  }
-
-
-  var allLargeImgs = document.getElementsByClassName('full-screen-img');
-
-  //Check to see if the window is top if not then display button
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 200) {
-      $('#template-to-top').fadeIn();
-      // $('#template-to-top').attr("data-aos","fade-up");
-      // $('#template-to-top').attr("data-aos-duration","600");
-
-
-
-      // data-aos="fade-up" data-aos-duration="600"
-    } else {
-      $('#template-to-top').fadeOut();
-    }
-
-    if ($(this).scrollTop() > 600) {
-
-      var hasLargeImg = false;
-
-      Array.prototype.forEach.call(allLargeImgs, function(el) {
-          // console.log(el);
-          if (checkVisible(el)) {
-            hasLargeImg = true;
-          }
-      });
-
-      if (hasLargeImg) {
-        $(".bs-docs-sidebar").fadeOut('slow');
-      } else {
-        $(".bs-docs-sidebar").fadeIn('slow');
-      }
-    }
-    else {
-        $(".bs-docs-sidebar").fadeOut("slow");
-    }
-
-    // if (checkVisible(testPic)) {
-    //   $(".bs-docs-sidebar").fadeOut("slow");
-    // } else {
-    //   $(".bs-docs-sidebar").fadeIn('slow');
-    // }
-
-
-    // if (mq.matches) {
-    //   if (window.location.pathname === '/html/home.html'){
-    //     console.log('yes');
-    //     if ($(this).scrollTop() > ($(window).height()*0.87-65)) {
-    //       $('.navbar-nav-white').removeClass('navbar-nav-white');
-    //       $('.navbar-brand-white').removeClass('navbar-brand-white');
-    //       $('.hvr-underline-from-left-white').removeClass('hvr-underline-from-left-white');
-    //     } else {
-    //       $('.navbar-nav').addClass('navbar-nav-white');
-    //       $('.navbar-brand').addClass('navbar-brand-white');
-    //       $('.hvr-underline-from-left').addClass('hvr-underline-from-left-white');
-    //     }
-    //   }
-    // }
   });
 
 
-
+//버튼 링크를 누르면 해당 타깃으로 이동하는 코드.
   $('a[href^="#"]').on('click',function (e) {
 	    e.preventDefault();
 
@@ -178,7 +92,7 @@ $(document).ready(function(){
 
     // $('.').addClass('load');
 
-
+    //see와 hide 보이고 안보이게 하는 코드 ㄴ
     $(".p-center-wrapper button[data-toggle='collapse']").click (function () {
       $(this).text(function(i,old){
         var newString = "";

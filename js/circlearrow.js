@@ -1,7 +1,4 @@
-$(document).ready(function(){
 
-    
-})
 const circleType = new CircleType(
         document.getElementById("rotated")
     ).radius(50);
@@ -18,4 +15,5 @@ $(window).scroll(function() {
         "-ms-transform": "rotate(" + offset + "deg)",
         transform: "rotate(" + offset + "deg)"
     });
+
 });
