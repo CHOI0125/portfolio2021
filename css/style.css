@@ -153,3 +153,21 @@ body {
     transition: background-position 0.8s ease-out;
     background-image: linear-gradient(to right, transparent 50%, var(--highlight-walker) 50%);
 }
+
+
+/* choose page style */
+.testbox{
+    position:relative;
+    background: blue;
+    font-size:10px;
+    top:40px;
+    left:40px;
+    display:inline-block;
+    margin:20px;
+    border-radius: 50% ;
+    width:40px;
+    height:40px;
+    color:white;
+    text-align:center;
+    line-height:20px;
+}
