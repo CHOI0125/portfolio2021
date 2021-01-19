@@ -47,6 +47,5 @@ setInterval(function () {
 
         el.css('left', powerx + forcex);
         el.css('top',  powery + forcey);
-        el.text(parseInt( distance));
     });
 }, 15);
