@@ -156,7 +156,16 @@ body {
 
 
 /* choose page style */
-.testbox{
+
+.avoid-object-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.avoid-object {
+    box-sizing: border-box;
     position:relative;
     background: blue;
     font-size:10px;
